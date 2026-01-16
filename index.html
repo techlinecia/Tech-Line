@@ -44,7 +44,8 @@
 </header>
 
 <section class="hero">
-  <div class="carousel-horizontal">
+  <!-- CARROSSEL -->
+  <div class="carousel-horizontal" id="carousel">
     <img src="img/pc 1.png" alt="PC 1">
     <img src="img/pc 2.png" alt="PC 2">
     <img src="img/pc 3.webp" alt="PC 3">
@@ -64,6 +65,19 @@
   toggle.addEventListener("click", () => {
     toggle.classList.toggle("active");
     nav.classList.toggle("active");
+  });
+</script>
+
+<!-- SCRIPT CARROSSEL (PAUSA NO TOQUE) -->
+<script>
+  const carousel = document.getElementById("carousel");
+
+  carousel.addEventListener("touchstart", () => {
+    carousel.classList.add("paused");
+  });
+
+  carousel.addEventListener("touchend", () => {
+    carousel.classList.remove("paused");
   });
 </script>
 

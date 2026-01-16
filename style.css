@@ -77,7 +77,7 @@ body {
 /* ================= BOTÃO PC ================= */
 .btn-header {
   position: absolute;
-  right: 40px;
+  right: 20px;
   padding: 10px 22px;
   border: 2px solid #00e5ff;
   color: #00e5ff;
@@ -124,10 +124,12 @@ body {
 .carousel-horizontal {
   width: 100%;
   display: flex;
-  justify-content: center;
   gap: 32px;
-  overflow: hidden;
   animation: moveRight 22s linear infinite;
+}
+
+.carousel-horizontal.paused {
+  animation-play-state: paused;
 }
 
 .carousel-horizontal img {
@@ -178,8 +180,8 @@ body {
 }
 
 @keyframes moveRight {
-  0% { transform: translateX(-120%); }
-  100% { transform: translateX(120%); }
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
 }
 
 /* ================= RESPONSIVO ================= */
@@ -219,20 +221,25 @@ body {
     display: flex;
   }
 
-  /* 🔥 CARROSSEL MOBILE FUNCIONAL */
+  /* 🔥 CARROSSEL MOBILE ANIMADO */
   .carousel-horizontal {
-    animation: none;
-    overflow-x: auto;
-    justify-content: flex-start;
-    padding: 10px 20px;
+    animation: moveMobile 16s linear infinite;
     gap: 20px;
-    scroll-snap-type: x mandatory;
+    padding-left: 20px;
+  }
+
+  .carousel-horizontal.paused {
+    animation-play-state: paused;
   }
 
   .carousel-horizontal img {
     width: 190px;
     min-width: 190px;
-    scroll-snap-align: center;
     filter: none;
   }
+}
+
+@keyframes moveMobile {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-70%); }
 }
