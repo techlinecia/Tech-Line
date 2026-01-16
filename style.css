@@ -120,7 +120,7 @@ body {
   overflow: hidden;
 }
 
-/* ================= CARROSSEL DESKTOP ================= */
+/* ================= CARROSSEL ================= */
 .carousel-horizontal {
   display: flex;
   gap: 32px;
@@ -168,9 +168,14 @@ body {
   100% { box-shadow: 0 0 10px #00e5ff; }
 }
 
+/* 👉 DESKTOP: começa da direita → esquerda */
 @keyframes moveDesktop {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
+  0% {
+    transform: translateX(100vw);
+  }
+  100% {
+    transform: translateX(-120%);
+  }
 }
 
 /* ================= MOBILE ================= */
@@ -210,7 +215,7 @@ body {
     display: flex;
   }
 
-  /* 🔥 CARROSSEL MOBILE CORRIGIDO */
+  /* 👉 MOBILE: mesma direção (direita → esquerda) */
   .carousel-horizontal {
     animation: moveMobile 16s linear infinite;
     gap: 20px;
@@ -223,8 +228,12 @@ body {
   }
 }
 
-/* 👉 COMEÇA NA DIREITA → ANDA PRA ESQUERDA */
+/* 👉 MOBILE animação */
 @keyframes moveMobile {
-  0% { transform: translateX(100%); }
-  100% { transform: translateX(-120%); }
+  0% {
+    transform: translateX(100vw);
+  }
+  100% {
+    transform: translateX(-120%);
+  }
 }
