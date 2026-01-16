@@ -106,7 +106,6 @@ body {
   width: 28px;
   height: 3px;
   background: #00e5ff;
-  transition: 0.3s;
 }
 
 /* ================= HERO ================= */
@@ -118,18 +117,14 @@ body {
   align-items: center;
   text-align: center;
   gap: 30px;
+  overflow: hidden;
 }
 
-/* ================= CARROSSEL (PC) ================= */
+/* ================= CARROSSEL DESKTOP ================= */
 .carousel-horizontal {
-  width: 100%;
   display: flex;
   gap: 32px;
-  animation: moveRight 22s linear infinite;
-}
-
-.carousel-horizontal.paused {
-  animation-play-state: paused;
+  animation: moveDesktop 22s linear infinite;
 }
 
 .carousel-horizontal img {
@@ -138,11 +133,6 @@ body {
   border-radius: 12px;
   object-fit: cover;
   filter: drop-shadow(0 0 12px #00e5ff);
-  transition: transform 0.3s;
-}
-
-.carousel-horizontal img:hover {
-  transform: scale(1.08);
 }
 
 /* ================= TEXTO ================= */
@@ -163,7 +153,6 @@ body {
   border: 2px solid #00e5ff;
   color: #00e5ff;
   cursor: pointer;
-  transition: 0.3s;
   box-shadow: 0 0 8px #00e5ff;
 }
 
@@ -179,12 +168,12 @@ body {
   100% { box-shadow: 0 0 10px #00e5ff; }
 }
 
-@keyframes moveRight {
+@keyframes moveDesktop {
   0% { transform: translateX(0); }
   100% { transform: translateX(-50%); }
 }
 
-/* ================= RESPONSIVO ================= */
+/* ================= MOBILE ================= */
 @media (max-width: 768px) {
   .header-inner {
     justify-content: space-between;
@@ -221,15 +210,10 @@ body {
     display: flex;
   }
 
-  /* 🔥 CARROSSEL MOBILE ANIMADO */
+  /* 🔥 CARROSSEL MOBILE CORRIGIDO */
   .carousel-horizontal {
     animation: moveMobile 16s linear infinite;
     gap: 20px;
-    padding-left: 20px;
-  }
-
-  .carousel-horizontal.paused {
-    animation-play-state: paused;
   }
 
   .carousel-horizontal img {
@@ -239,7 +223,8 @@ body {
   }
 }
 
+/* 👉 COMEÇA NA DIREITA → ANDA PRA ESQUERDA */
 @keyframes moveMobile {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-70%); }
+  0% { transform: translateX(100%); }
+  100% { transform: translateX(-120%); }
 }
