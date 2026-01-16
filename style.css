@@ -15,6 +15,8 @@ body {
 .header {
   width: 100%;
   border-bottom: 1px solid #00e5ff;
+  position: relative;
+  z-index: 1000; /* 🔥 fica acima do carrossel */
 }
 
 .header-inner {
@@ -118,6 +120,8 @@ body {
   text-align: center;
   gap: 30px;
   overflow: hidden;
+  position: relative;
+  z-index: 1;
 }
 
 /* ================= CARROSSEL ================= */
@@ -126,6 +130,8 @@ body {
   gap: 32px;
   animation: moveDesktop 22s linear infinite;
   will-change: transform;
+  position: relative;
+  z-index: 1; /* 🔥 fica atrás do menu */
 }
 
 .carousel-horizontal img {
@@ -171,12 +177,8 @@ body {
 
 /* 👉 DESKTOP — ESQUERDA → DIREITA */
 @keyframes moveDesktop {
-  0% {
-    transform: translateX(-120%);
-  }
-  100% {
-    transform: translateX(100vw);
-  }
+  0% { transform: translateX(-120%); }
+  100% { transform: translateX(100vw); }
 }
 
 /* ================= MOBILE ================= */
@@ -210,6 +212,7 @@ body {
     padding: 25px 0;
     display: none;
     border-bottom: 1px solid #00e5ff;
+    z-index: 2000; /* 🔥 menu por cima */
   }
 
   .nav.active {
@@ -231,10 +234,6 @@ body {
 
 /* 👉 MOBILE animação */
 @keyframes moveMobile {
-  0% {
-    transform: translateX(-120%);
-  }
-  100% {
-    transform: translateX(100vw);
-  }
+  0% { transform: translateX(-120%); }
+  100% { transform: translateX(100vw); }
 }
