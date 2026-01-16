@@ -52,12 +52,17 @@ body {
   display: flex;
 }
 
-.nav a {
+/* FIX DEFINITIVO LINKS AZUIS */
+.nav a,
+.nav a:visited,
+.nav a:active,
+.nav a:focus {
   margin-left: 22px;
   color: #ffffff;
   text-decoration: none;
   font-size: 14px;
   transition: 0.3s;
+  outline: none;
 }
 
 .nav a:hover {
@@ -213,7 +218,10 @@ body {
     display: flex;
   }
 
-  .nav a {
+  .nav a,
+  .nav a:visited,
+  .nav a:active,
+  .nav a:focus {
     margin: 0;
     font-size: 16px;
   }
