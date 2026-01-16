@@ -3,94 +3,128 @@
 <head>
   <meta charset="UTF-8">
   <title>Tech Line</title>
-
-  <!-- Viewport ESSENCIAL -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- FAVICON -->
-  <link rel="icon" type="image/png" sizes="32x32" href="img/logo techline.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="img/logo techline.png">
-
-  <!-- CSS -->
+  <link rel="icon" type="image/png" href="img/logo techline.png">
   <link rel="stylesheet" href="style.css">
-
-  <!-- FONTE -->
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
 
-  <!-- ================= HEADER ================= -->
-  <header class="header">
-    <div class="header-inner">
-
-      <!-- LOGO (ESQUERDA) -->
-      <div class="logo">
-        <img src="img/logo techline.png" alt="Logo Tech Line">
-        <h1>TECH<span>LINE</span></h1>
-      </div>
-
-      <!-- BOTÃO HAMBURGER (MOBILE) -->
-      <div class="menu-toggle" id="menu-toggle">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
-
-      <!-- MENU (CENTRAL NO PC) -->
-      <nav class="nav" id="nav">
-        <a href="#">Início</a>
-        <a href="#">PCs</a>
-        <a href="#">Serviços</a>
-        <a href="#">Agendamento</a>
-        <a href="#">Contato</a>
-
-        <!-- BOTÃO SÓ PC -->
-        <a href="#" class="btn-header">Agendar Serviço</a>
-      </nav>
-
-    </div>
-  </header>
-
-  <!-- ================= HERO ================= -->
-  <section class="hero">
-
-    <!-- CARROSSEL -->
-    <div class="carousel-horizontal" id="carousel">
-      <img src="img/pc 1.png" alt="PC 1">
-      <img src="img/pc 2.png" alt="PC 2">
-      <img src="img/pc 3.webp" alt="PC 3">
-      <img src="img/pc 4.jpg" alt="PC 4">
+<header class="header">
+  <div class="header-inner">
+    <div class="logo" id="logo">
+      <img src="img/logo techline.png">
+      <h1>TECH<span>LINE</span></h1>
     </div>
 
-    <h2>O FUTURO DO HARDWARE COMEÇA AQUI</h2>
-    <p>PCs montados, upgrades e manutenção de alta performance</p>
-    <button>Ver Configurações</button>
+    <div class="menu-toggle" id="menu-toggle">
+      <span></span><span></span><span></span>
+    </div>
 
-  </section>
+    <nav class="nav" id="nav">
+      <a href="#">Início</a>
+      <a href="#pcs">PCs</a>
+      <a href="#">Serviços</a>
+      <a href="#">Agendamento</a>
+      <a href="#">Contato</a>
+    </nav>
+  </div>
+</header>
 
-  <!-- ================= SCRIPT MENU HAMBURGER ================= -->
-  <script>
-    const toggle = document.getElementById("menu-toggle");
-    const nav = document.getElementById("nav");
+<section class="hero">
+  <div class="carousel-horizontal">
+    <img src="img/pc 1.png">
+    <img src="img/pc 2.png">
+    <img src="img/pc 3.webp">
+    <img src="img/pc 4.jpg">
+  </div>
 
-    toggle.addEventListener("click", () => {
-      toggle.classList.toggle("active");
-      nav.classList.toggle("active");
-    });
-  </script>
+  <h2>O FUTURO DO HARDWARE COMEÇA AQUI</h2>
+  <p>PCs montados, upgrades e manutenção de alta performance</p>
+</section>
 
-  <!-- ================= SCRIPT CARROSSEL (PAUSA NO TOQUE) ================= -->
-  <script>
-    const carousel = document.getElementById("carousel");
+<section class="pcs-section" id="pcs">
+  <h2>PCs montados pela TECH LINE</h2>
+  <p class="pcs-subtitle">Projetos reais, montados com foco em desempenho e qualidade.</p>
+  <div class="pcs-grid" id="pcs-grid"></div>
+</section>
 
-    carousel.addEventListener("touchstart", () => {
-      carousel.classList.add("paused");
-    });
+<button id="admin-btn" style="
+display:none;
+position:fixed;
+bottom:20px;
+right:20px;
+padding:14px 20px;
+background:#00e5ff;
+border:none;
+border-radius:10px;
+font-weight:bold;
+cursor:pointer;
+z-index:9999;">
++ Adicionar PC
+</button>
 
-    carousel.addEventListener("touchend", () => {
-      carousel.classList.remove("paused");
-    });
-  </script>
+<div id="admin-modal" style="
+display:none;
+position:fixed;
+inset:0;
+background:rgba(0,0,0,0.85);
+z-index:10000;
+align-items:center;
+justify-content:center;
+">
+  <div style="
+  background:#0a0a0a;
+  padding:25px;
+  border-radius:12px;
+  border:2px solid #00e5ff;
+  width:90%;
+  max-width:420px;
+  position:relative;
+  ">
+    <button id="close-modal" style="
+    position:absolute;
+    top:10px;
+    right:12px;
+    background:none;
+    border:none;
+    color:#00e5ff;
+    font-size:20px;
+    cursor:pointer;">✕</button>
+
+    <h2 style="text-align:center;margin-bottom:20px;">Adicionar PC</h2>
+
+    <form id="pc-form">
+      <input id="pc-nome" type="text" placeholder="Nome do PC" required>
+      <textarea id="pc-config" rows="4" placeholder="Configurações" required></textarea>
+      <input id="pc-img" type="file" accept="image/*" required>
+      <button type="submit">Salvar PC</button>
+    </form>
+  </div>
+</div>
+
+<!-- FIREBASE -->
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-storage-compat.js"></script>
+
+<script>
+firebase.initializeApp({
+  apiKey: "AIzaSyBz5OwZwyCKB8blik47k3EZAuOWCme3-eI",
+  authDomain: "tech-line-info.firebaseapp.com",
+  projectId: "tech-line-info",
+  storageBucket: "tech-line-info.firebasestorage.app",
+  messagingSenderId: "909410297051",
+  appId: "1:909410297051:web:a5e843f1ba4751babb58fe"
+});
+
+const db = firebase.firestore();
+const storage = firebase.storage();
+</script>
+
+<!-- SCRIPT SEPARADO -->
+<script src="js/script.js"></script>
 
 </body>
 </html>
