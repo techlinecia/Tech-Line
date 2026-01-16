@@ -18,6 +18,7 @@ body {
   align-items: center;
   padding: 18px 60px;
   border-bottom: 1px solid #00e5ff;
+  position: relative;
 }
 
 /* ================= LOGO ================= */
@@ -39,7 +40,6 @@ body {
 
 .logo h1 {
   font-size: 22px;
-  color: #ffffff;
 }
 
 .logo h1 span {
@@ -47,14 +47,12 @@ body {
   text-shadow: 0 0 8px #00e5ff;
 }
 
-/* ================= MENU ================= */
-nav {
+/* ================= MENU DESKTOP ================= */
+.nav {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
 }
 
-nav a {
+.nav a {
   margin-left: 22px;
   color: #ffffff;
   text-decoration: none;
@@ -62,9 +60,37 @@ nav a {
   transition: 0.3s;
 }
 
-nav a:hover {
+.nav a:hover {
   color: #00e5ff;
   text-shadow: 0 0 8px #00e5ff;
+}
+
+/* ================= MENU HAMBURGER ================= */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 6px;
+  cursor: pointer;
+}
+
+.menu-toggle span {
+  width: 28px;
+  height: 3px;
+  background: #00e5ff;
+  transition: 0.3s;
+}
+
+/* animação do X */
+.menu-toggle.active span:nth-child(1) {
+  transform: rotate(45deg) translate(6px, 6px);
+}
+
+.menu-toggle.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-toggle.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(6px, -6px);
 }
 
 /* ================= HERO ================= */
@@ -80,7 +106,7 @@ nav a:hover {
   overflow: hidden;
 }
 
-/* ================= CARROSSEL HORIZONTAL ================= */
+/* ================= CARROSSEL ================= */
 .carousel-horizontal {
   position: absolute;
   top: 50%;
@@ -104,7 +130,7 @@ nav a:hover {
   transform: scale(1.08);
 }
 
-/* ================= TEXTO SOBRE O CARROSSEL ================= */
+/* ================= TEXTO ================= */
 .hero h2,
 .hero p,
 .hero button {
@@ -141,24 +167,14 @@ nav a:hover {
 
 /* ================= ANIMAÇÕES ================= */
 @keyframes pulse {
-  0% {
-    box-shadow: 0 0 10px #00e5ff;
-  }
-  50% {
-    box-shadow: 0 0 20px #00e5ff;
-  }
-  100% {
-    box-shadow: 0 0 10px #00e5ff;
-  }
+  0% { box-shadow: 0 0 10px #00e5ff; }
+  50% { box-shadow: 0 0 20px #00e5ff; }
+  100% { box-shadow: 0 0 10px #00e5ff; }
 }
 
 @keyframes moveRight {
-  0% {
-    left: -120%;
-  }
-  100% {
-    left: 120%;
-  }
+  0% { left: -120%; }
+  100% { left: 120%; }
 }
 
 /* ================= RESPONSIVO ================= */
@@ -173,14 +189,33 @@ nav a:hover {
 }
 
 @media (max-width: 768px) {
-  .header {
-    flex-direction: column;
-    gap: 15px;
+  /* mostra hamburger */
+  .menu-toggle {
+    display: flex;
   }
 
-  nav a {
-    margin-left: 14px;
-    margin-top: 6px;
+  /* esconde menu normal */
+  .nav {
+    position: absolute;
+    top: 80px;
+    left: 0;
+    width: 100%;
+    background: #050505;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 25px 0;
+    display: none;
+    border-bottom: 1px solid #00e5ff;
+  }
+
+  .nav.active {
+    display: flex;
+  }
+
+  .nav a {
+    margin: 0;
+    font-size: 16px;
   }
 
   .hero h2 {
@@ -200,8 +235,10 @@ nav a:hover {
     animation: moveRight 26s linear infinite;
   }
 
+  /* REMOVE FUNDO AZUL NO MOBILE */
   .carousel-horizontal img {
     width: 190px;
+    filter: none;
   }
 }
 
