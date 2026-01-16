@@ -7,79 +7,90 @@
   <!-- Viewport ESSENCIAL -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <!-- FAVICON -->
+  <link rel="icon" type="image/png" sizes="32x32" href="img/favicon.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="img/favicon.png">
+
+  <!-- CSS -->
   <link rel="stylesheet" href="style.css">
+
+  <!-- FONTE -->
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
 
-<header class="header">
-  <div class="header-inner">
+  <!-- ================= HEADER ================= -->
+  <header class="header">
+    <div class="header-inner">
 
-    <!-- LOGO (ESQUERDA) -->
-    <div class="logo">
-      <img src="img/logo techline.png" alt="Logo Tech Line">
-      <h1>TECH<span>LINE</span></h1>
+      <!-- LOGO (ESQUERDA) -->
+      <div class="logo">
+        <img src="img/logo techline.png" alt="Logo Tech Line">
+        <h1>TECH<span>LINE</span></h1>
+      </div>
+
+      <!-- BOTÃO HAMBURGER (MOBILE) -->
+      <div class="menu-toggle" id="menu-toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+
+      <!-- MENU (CENTRAL NO PC) -->
+      <nav class="nav" id="nav">
+        <a href="#">Início</a>
+        <a href="#">PCs</a>
+        <a href="#">Serviços</a>
+        <a href="#">Agendamento</a>
+        <a href="#">Contato</a>
+
+        <!-- BOTÃO SÓ PC -->
+        <a href="#" class="btn-header">Agendar Serviço</a>
+      </nav>
+
+    </div>
+  </header>
+
+  <!-- ================= HERO ================= -->
+  <section class="hero">
+
+    <!-- CARROSSEL -->
+    <div class="carousel-horizontal" id="carousel">
+      <img src="img/pc 1.png" alt="PC 1">
+      <img src="img/pc 2.png" alt="PC 2">
+      <img src="img/pc 3.webp" alt="PC 3">
+      <img src="img/pc 4.jpg" alt="PC 4">
     </div>
 
-    <!-- BOTÃO HAMBURGER (MOBILE) -->
-    <div class="menu-toggle" id="menu-toggle">
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
+    <h2>O FUTURO DO HARDWARE COMEÇA AQUI</h2>
+    <p>PCs montados, upgrades e manutenção de alta performance</p>
+    <button>Ver Configurações</button>
 
-    <!-- MENU (CENTRAL NO PC) -->
-    <nav class="nav" id="nav">
-      <a href="#">Início</a>
-      <a href="#">PCs</a>
-      <a href="#">Serviços</a>
-      <a href="#">Agendamento</a>
-      <a href="#">Contato</a>
+  </section>
 
-      <!-- BOTÃO SÓ PC -->
-      <a href="#" class="btn-header">Agendar Serviço</a>
-    </nav>
+  <!-- ================= SCRIPT MENU HAMBURGER ================= -->
+  <script>
+    const toggle = document.getElementById("menu-toggle");
+    const nav = document.getElementById("nav");
 
-  </div>
-</header>
+    toggle.addEventListener("click", () => {
+      toggle.classList.toggle("active");
+      nav.classList.toggle("active");
+    });
+  </script>
 
-<section class="hero">
-  <!-- CARROSSEL -->
-  <div class="carousel-horizontal" id="carousel">
-    <img src="img/pc 1.png" alt="PC 1">
-    <img src="img/pc 2.png" alt="PC 2">
-    <img src="img/pc 3.webp" alt="PC 3">
-    <img src="img/pc 4.jpg" alt="PC 4">
-  </div>
+  <!-- ================= SCRIPT CARROSSEL (PAUSA NO TOQUE) ================= -->
+  <script>
+    const carousel = document.getElementById("carousel");
 
-  <h2>O FUTURO DO HARDWARE COMEÇA AQUI</h2>
-  <p>PCs montados, upgrades e manutenção de alta performance</p>
-  <button>Ver Configurações</button>
-</section>
+    carousel.addEventListener("touchstart", () => {
+      carousel.classList.add("paused");
+    });
 
-<!-- SCRIPT MENU HAMBURGER -->
-<script>
-  const toggle = document.getElementById("menu-toggle");
-  const nav = document.getElementById("nav");
-
-  toggle.addEventListener("click", () => {
-    toggle.classList.toggle("active");
-    nav.classList.toggle("active");
-  });
-</script>
-
-<!-- SCRIPT CARROSSEL (PAUSA NO TOQUE) -->
-<script>
-  const carousel = document.getElementById("carousel");
-
-  carousel.addEventListener("touchstart", () => {
-    carousel.classList.add("paused");
-  });
-
-  carousel.addEventListener("touchend", () => {
-    carousel.classList.remove("paused");
-  });
-</script>
+    carousel.addEventListener("touchend", () => {
+      carousel.classList.remove("paused");
+    });
+  </script>
 
 </body>
 </html>
