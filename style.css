@@ -125,6 +125,7 @@ body {
   display: flex;
   gap: 32px;
   animation: moveDesktop 22s linear infinite;
+  will-change: transform;
 }
 
 .carousel-horizontal img {
@@ -168,7 +169,7 @@ body {
   100% { box-shadow: 0 0 10px #00e5ff; }
 }
 
-/* 👉 DESKTOP: começa da direita → esquerda */
+/* 👉 DESKTOP — começa da DIREITA → ESQUERDA */
 @keyframes moveDesktop {
   0% {
     transform: translateX(100vw);
@@ -215,7 +216,7 @@ body {
     display: flex;
   }
 
-  /* 👉 MOBILE: mesma direção (direita → esquerda) */
+  /* 👉 MOBILE — mesma direção (direita → esquerda) */
   .carousel-horizontal {
     animation: moveMobile 16s linear infinite;
     gap: 20px;
