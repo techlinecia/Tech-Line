@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <title>Tech Line</title>
 
-  <!-- Viewport (ESSENCIAL) -->
+  <!-- Viewport ESSENCIAL -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <link rel="stylesheet" href="style.css">
@@ -13,25 +13,34 @@
 <body>
 
 <header class="header">
-  <div class="logo">
-    <img src="img/logo techline.png" alt="Logo Tech Line">
-    <h1>TECH<span>LINE</span></h1>
-  </div>
+  <div class="header-inner">
 
-  <!-- BOTÃO MENU HAMBURGER (SÓ NO MOBILE) -->
-  <div class="menu-toggle" id="menu-toggle">
-    <span></span>
-    <span></span>
-    <span></span>
-  </div>
+    <!-- LOGO (ESQUERDA) -->
+    <div class="logo">
+      <img src="img/logo techline.png" alt="Logo Tech Line">
+      <h1>TECH<span>LINE</span></h1>
+    </div>
 
-  <nav class="nav" id="nav">
-    <a href="#">Início</a>
-    <a href="#">PCs</a>
-    <a href="#">Serviços</a>
-    <a href="#">Agendamento</a>
-    <a href="#">Contato</a>
-  </nav>
+    <!-- BOTÃO HAMBURGER (MOBILE) -->
+    <div class="menu-toggle" id="menu-toggle">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+    <!-- MENU (CENTRAL NO PC) -->
+    <nav class="nav" id="nav">
+      <a href="#">Início</a>
+      <a href="#">PCs</a>
+      <a href="#">Serviços</a>
+      <a href="#">Agendamento</a>
+      <a href="#">Contato</a>
+
+      <!-- BOTÃO SÓ PC -->
+      <a href="#" class="btn-header">Agendar Serviço</a>
+    </nav>
+
+  </div>
 </header>
 
 <section class="hero">

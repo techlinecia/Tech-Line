@@ -13,16 +13,24 @@ body {
 
 /* ================= HEADER ================= */
 .header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 18px 60px;
+  width: 100%;
   border-bottom: 1px solid #00e5ff;
+}
+
+.header-inner {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 18px 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   position: relative;
 }
 
 /* ================= LOGO ================= */
 .logo {
+  position: absolute;
+  left: 80px;
   display: flex;
   align-items: center;
   gap: 12px;
@@ -50,19 +58,15 @@ body {
 /* ================= MENU DESKTOP ================= */
 .nav {
   display: flex;
+  align-items: center;
 }
 
-/* FIX DEFINITIVO LINKS AZUIS */
-.nav a,
-.nav a:visited,
-.nav a:active,
-.nav a:focus {
-  margin-left: 22px;
+.nav a {
+  margin: 0 18px;
   color: #ffffff;
   text-decoration: none;
   font-size: 14px;
   transition: 0.3s;
-  outline: none;
 }
 
 .nav a:hover {
@@ -70,9 +74,29 @@ body {
   text-shadow: 0 0 8px #00e5ff;
 }
 
+/* ================= BOTÃO PC ================= */
+.btn-header {
+  position: absolute;
+  right: 40px;
+  padding: 10px 22px;
+  border: 2px solid #00e5ff;
+  color: #00e5ff;
+  text-decoration: none;
+  font-size: 13px;
+  box-shadow: 0 0 10px #00e5ff;
+  transition: 0.3s;
+}
+
+.btn-header:hover {
+  background: #00e5ff;
+  color: #000;
+}
+
 /* ================= MENU HAMBURGER ================= */
 .menu-toggle {
   display: none;
+  position: absolute;
+  right: 20px;
   flex-direction: column;
   gap: 6px;
   cursor: pointer;
@@ -85,41 +109,24 @@ body {
   transition: 0.3s;
 }
 
-/* animação do X */
-.menu-toggle.active span:nth-child(1) {
-  transform: rotate(45deg) translate(6px, 6px);
-}
-
-.menu-toggle.active span:nth-child(2) {
-  opacity: 0;
-}
-
-.menu-toggle.active span:nth-child(3) {
-  transform: rotate(-45deg) translate(6px, -6px);
-}
-
 /* ================= HERO ================= */
 .hero {
-  position: relative;
   min-height: 80vh;
-  padding: 40px 20px;
+  padding: 60px 20px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   text-align: center;
-  overflow: hidden;
+  gap: 30px;
 }
 
-/* ================= CARROSSEL ================= */
+/* ================= CARROSSEL (AGORA EM CIMA DO TEXTO) ================= */
 .carousel-horizontal {
-  position: absolute;
-  top: 50%;
-  left: -120%;
+  width: 100%;
   display: flex;
+  justify-content: center;
   gap: 32px;
-  z-index: -1;
-  transform: translateY(-50%);
+  overflow: hidden;
   animation: moveRight 22s linear infinite;
 }
 
@@ -136,16 +143,8 @@ body {
 }
 
 /* ================= TEXTO ================= */
-.hero h2,
-.hero p,
-.hero button {
-  position: relative;
-  z-index: 1;
-}
-
 .hero h2 {
   font-size: 40px;
-  margin-bottom: 15px;
   text-shadow: 0 0 10px #00e5ff;
 }
 
@@ -155,7 +154,7 @@ body {
 }
 
 .hero button {
-  margin-top: 25px;
+  margin-top: 20px;
   padding: 14px 36px;
   background: transparent;
   border: 2px solid #00e5ff;
@@ -178,28 +177,29 @@ body {
 }
 
 @keyframes moveRight {
-  0% { left: -120%; }
-  100% { left: 120%; }
+  0% { transform: translateX(-120%); }
+  100% { transform: translateX(120%); }
 }
 
 /* ================= RESPONSIVO ================= */
-@media (max-width: 1024px) {
-  .header {
-    padding: 18px 30px;
-  }
-
-  .carousel-horizontal img {
-    width: 240px;
-  }
-}
-
 @media (max-width: 768px) {
-  /* mostra hamburger */
+  .header-inner {
+    justify-content: space-between;
+    padding: 18px 20px;
+  }
+
+  .logo {
+    position: static;
+  }
+
   .menu-toggle {
     display: flex;
   }
 
-  /* esconde menu normal */
+  .btn-header {
+    display: none;
+  }
+
   .nav {
     position: absolute;
     top: 80px;
@@ -218,44 +218,8 @@ body {
     display: flex;
   }
 
-  .nav a,
-  .nav a:visited,
-  .nav a:active,
-  .nav a:focus {
-    margin: 0;
-    font-size: 16px;
-  }
-
-  .hero h2 {
-    font-size: 30px;
-  }
-
-  .hero p {
-    font-size: 14px;
-  }
-
-  .hero button {
-    padding: 12px 28px;
-  }
-
-  .carousel-horizontal {
-    top: 60%;
-    animation: moveRight 26s linear infinite;
-  }
-
-  /* REMOVE FUNDO AZUL NO MOBILE */
   .carousel-horizontal img {
     width: 190px;
     filter: none;
-  }
-}
-
-@media (max-width: 480px) {
-  .hero h2 {
-    font-size: 24px;
-  }
-
-  .carousel-horizontal img {
-    width: 160px;
   }
 }
