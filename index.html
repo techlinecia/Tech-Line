@@ -5,21 +5,30 @@
   <title>Tech Line</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <!-- FAVICON -->
   <link rel="icon" type="image/png" href="img/logo techline.png">
+
+  <!-- CSS -->
   <link rel="stylesheet" href="style.css">
+
+  <!-- FONTE -->
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
 
+<!-- ================= HEADER ================= -->
 <header class="header">
   <div class="header-inner">
+
     <div class="logo" id="logo">
-      <img src="img/logo techline.png">
+      <img src="img/logo.png" alt="Tech Line">
       <h1>TECH<span>LINE</span></h1>
     </div>
 
     <div class="menu-toggle" id="menu-toggle">
-      <span></span><span></span><span></span>
+      <span></span>
+      <span></span>
+      <span></span>
     </div>
 
     <nav class="nav" id="nav">
@@ -29,101 +38,79 @@
       <a href="#">Agendamento</a>
       <a href="#">Contato</a>
     </nav>
+
   </div>
 </header>
 
+<!-- ================= HERO ================= -->
 <section class="hero">
+
   <div class="carousel-horizontal">
-    <img src="img/pc 1.png">
-    <img src="img/pc 2.png">
-    <img src="img/pc 3.webp">
-    <img src="img/pc 4.jpg">
+    <img src="img/pc 1.jpg">
+    <img src="img/pc 2.jpg">
+    <img src="img/pc 3.png">
+    <img src="img/pc 4.png">
   </div>
 
   <h2>O FUTURO DO HARDWARE COMEÇA AQUI</h2>
   <p>PCs montados, upgrades e manutenção de alta performance</p>
+
 </section>
 
+<!-- ================= PCS ================= -->
 <section class="pcs-section" id="pcs">
   <h2>PCs montados pela TECH LINE</h2>
-  <p class="pcs-subtitle">Projetos reais, montados com foco em desempenho e qualidade.</p>
-  <div class="pcs-grid" id="pcs-grid"></div>
+  <p class="pcs-subtitle">
+    Projetos reais, montados com foco em desempenho e qualidade.
+  </p>
+
+  <div class="pcs-grid">
+
+    <div class="pc-card">
+      <img src="img/pc 2.jpg" alt="Ryzen 5 5500">
+      <h3>Ryzen 5 5500</h3>
+      <p>
+    •    Processador: Ryzen 5 5500<br>
+    •    Memória RAM: 32 GB DDR4<br>
+    •    Placa de vídeo: RX 580 8 GB<br>
+    •    Water cooler: 240 mm<br>
+    •    Fonte: MSI MAG A650BN<br>
+    •    Gabinete:
+      </p>
+    </div>
+
+    <div class="pc-card">
+      <img src="img/pc 3.png" alt="Ryzen 7 7700">
+      <h3>Ryzen 7 7700 </h3>
+    •    Processador: Ryzen 7 7700<br>
+    •    Placa-mãe: B650M-E Wi-Fi<br>
+    •    Memória RAM: 32 GB DDR5<br>
+    •    Placa de vídeo: RX 7600<br>
+    •    SSD: NVMe 1 TB<br>
+    •    Water cooler: 360 mm<br>
+    •    Fonte: MSI MAG A650BN<br>
+    •    Gabinete: Mancer CV 500L
+      </p>
+    </div>
+
+    <div class="pc-card">
+      <img src="img/pc 4.png" alt="Intel Core i5-10400">
+      <h3>Intel Core i5-10400</h3>
+      <p>
+    •    Processador: Intel Core i5-10400<br>
+    •    Placa-mãe: H510M-E<br>
+    •    Memória RAM: 16 GB DDR4<br>
+    •    Placa de vídeo: RX 6700 XT<br>
+    •    Armazenamento: SSD SATA 480 GB<br>
+    •    Fonte: Cooler Master 1250 W<br>
+    •    Gabinete: TGT Legion V2
+      </p>
+    </div>
+
+  </div>
 </section>
 
-<button id="admin-btn" style="
-display:none;
-position:fixed;
-bottom:20px;
-right:20px;
-padding:14px 20px;
-background:#00e5ff;
-border:none;
-border-radius:10px;
-font-weight:bold;
-cursor:pointer;
-z-index:9999;">
-+ Adicionar PC
-</button>
-
-<div id="admin-modal" style="
-display:none;
-position:fixed;
-inset:0;
-background:rgba(0,0,0,0.85);
-z-index:10000;
-align-items:center;
-justify-content:center;
-">
-  <div style="
-  background:#0a0a0a;
-  padding:25px;
-  border-radius:12px;
-  border:2px solid #00e5ff;
-  width:90%;
-  max-width:420px;
-  position:relative;
-  ">
-    <button id="close-modal" style="
-    position:absolute;
-    top:10px;
-    right:12px;
-    background:none;
-    border:none;
-    color:#00e5ff;
-    font-size:20px;
-    cursor:pointer;">✕</button>
-
-    <h2 style="text-align:center;margin-bottom:20px;">Adicionar PC</h2>
-
-    <form id="pc-form">
-      <input id="pc-nome" type="text" placeholder="Nome do PC" required>
-      <textarea id="pc-config" rows="4" placeholder="Configurações" required></textarea>
-      <input id="pc-img" type="file" accept="image/*" required>
-      <button type="submit">Salvar PC</button>
-    </form>
-  </div>
-</div>
-
-<!-- FIREBASE -->
-<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-storage-compat.js"></script>
-
-<script>
-firebase.initializeApp({
-  apiKey: "AIzaSyBz5OwZwyCKB8blik47k3EZAuOWCme3-eI",
-  authDomain: "tech-line-info.firebaseapp.com",
-  projectId: "tech-line-info",
-  storageBucket: "tech-line-info.firebasestorage.app",
-  messagingSenderId: "909410297051",
-  appId: "1:909410297051:web:a5e843f1ba4751babb58fe"
-});
-
-const db = firebase.firestore();
-const storage = firebase.storage();
-</script>
-
-<!-- SCRIPT SEPARADO -->
+<!-- ================= JS ================= -->
 <script src="js/script.js"></script>
 
 </body>

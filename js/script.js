@@ -1,4 +1,4 @@
-/* MENU */
+/* ================= MENU MOBILE ================= */
 const menuToggle = document.getElementById("menu-toggle");
 const nav = document.getElementById("nav");
 
@@ -6,78 +6,36 @@ menuToggle.onclick = () => {
   nav.classList.toggle("active");
 };
 
-/* ADMIN SECRETO */
-let clicks = 0;
-let timer;
-
-const logo = document.getElementById("logo");
-const adminBtn = document.getElementById("admin-btn");
-const modal = document.getElementById("admin-modal");
-const closeModal = document.getElementById("close-modal");
-
-logo.onclick = () => {
-  clicks++;
-  clearTimeout(timer);
-  timer = setTimeout(() => clicks = 0, 3000);
-
-  if (clicks === 3) {
-    adminBtn.style.display = "block";
-    alert("Modo admin ativado 🔥");
-    clicks = 0;
+/* ================= LISTA DE PCS (MANUAL) ================= */
+const pcs = [
+  {
+    nome: "PC Gamer Ryzen 5",
+    configuracoes: "Ryzen 5 5600 | 16GB RAM | RTX 3060 | SSD 1TB",
+    imagem: "img/pc 1.png"
+  },
+  {
+    nome: "PC Gamer Intel i5",
+    configuracoes: "i5 12400F | 16GB RAM | RX 6600 | SSD 512GB",
+    imagem: "img/pc 2.png"
+  },
+  {
+    nome: "PC Gamer High-End",
+    configuracoes: "Ryzen 7 5800X | 32GB RAM | RTX 4070 | NVMe 1TB",
+    imagem: "img/pc 3.webp"
   }
-};
+];
 
-adminBtn.onclick = () => modal.style.display = "flex";
-closeModal.onclick = () => modal.style.display = "none";
-
-modal.onclick = (e) => {
-  if (e.target === modal) modal.style.display = "none";
-};
-
-/* SALVAR PC */
-const form = document.getElementById("pc-form");
-
-form.addEventListener("submit", async (e) => {
-  e.preventDefault();
-
-  const nome = document.getElementById("pc-nome").value;
-  const config = document.getElementById("pc-config").value;
-  const file = document.getElementById("pc-img").files[0];
-
-  if (!file) return alert("Selecione uma imagem");
-
-  const ref = storage.ref("pcs/" + Date.now() + "_" + file.name);
-  const upload = await ref.put(file);
-  const url = await upload.ref.getDownloadURL();
-
-  await db.collection("pcs").add({
-    nome,
-    configuracoes: config,
-    imagem: url,
-    criadoEm: firebase.firestore.FieldValue.serverTimestamp()
-  });
-
-  alert("PC salvo com sucesso 🔥");
-  modal.style.display = "none";
-  form.reset();
-  carregarPCs();
-});
-
-/* CARREGAR PCS */
-async function carregarPCs() {
+/* ================= RENDERIZAR PCS ================= */
+function carregarPCs() {
   const grid = document.getElementById("pcs-grid");
+  if (!grid) return;
+
   grid.innerHTML = "";
 
-  const snapshot = await db
-    .collection("pcs")
-    .orderBy("criadoEm", "desc")
-    .get();
-
-  snapshot.forEach(doc => {
-    const pc = doc.data();
+  pcs.forEach(pc => {
     grid.innerHTML += `
       <div class="pc-card">
-        <img src="${pc.imagem}">
+        <img src="${pc.imagem}" alt="${pc.nome}">
         <h3>${pc.nome}</h3>
         <p>${pc.configuracoes}</p>
       </div>
