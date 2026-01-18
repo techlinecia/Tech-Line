@@ -15,14 +15,16 @@ body {
 .header {
   width: 100%;
   border-bottom: 1px solid #00e5ff;
-  position: relative;
+  position: sticky;
+  top: 0;
   z-index: 1000;
+  background: #050505;
 }
 
 .header-inner {
   max-width: 1300px;
   margin: 0 auto;
-  padding: 18px 80px;
+  padding: 16px 60px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -32,43 +34,39 @@ body {
 /* ================= LOGO ================= */
 .logo {
   position: absolute;
-  left: 80px;
+  left: 60px;
   display: flex;
   align-items: center;
   gap: 12px;
-  cursor: pointer;
 }
 
 .logo img {
-  width: 48px;
-  height: 48px;
+  width: 44px;
+  height: 44px;
   border-radius: 50%;
-  object-fit: cover;
   border: 2px solid #00e5ff;
   box-shadow: 0 0 12px #00e5ff;
   animation: pulse 2s infinite;
 }
 
 .logo h1 {
-  font-size: 22px;
+  font-size: 20px;
 }
 
-.logo h1 span {
+.logo span {
   color: #00e5ff;
-  text-shadow: 0 0 8px #00e5ff;
 }
 
 /* ================= MENU ================= */
 .nav {
   display: flex;
-  align-items: center;
 }
 
 .nav a {
-  margin: 0 18px;
-  color: #ffffff;
+  margin: 0 16px;
+  color: #fff;
+  font-size: 13px;
   text-decoration: none;
-  font-size: 14px;
   transition: 0.3s;
 }
 
@@ -80,16 +78,16 @@ body {
 /* ================= BOTÃO AGENDAR ================= */
 .btn-agendar {
   position: absolute;
-  right: 80px;
+  right: 60px;
   padding: 10px 18px;
   background: #00e5ff;
   color: #000;
-  font-size: 13px;
-  text-decoration: none;
+  font-size: 12px;
   border-radius: 8px;
+  text-decoration: none;
   font-weight: 600;
-  transition: 0.3s;
   box-shadow: 0 0 15px #00e5ff88;
+  transition: 0.3s;
 }
 
 .btn-agendar:hover {
@@ -97,7 +95,7 @@ body {
   box-shadow: 0 0 25px #00e5ff;
 }
 
-/* ================= MENU HAMBURGER ================= */
+/* ================= MENU MOBILE ================= */
 .menu-toggle {
   display: none;
   position: absolute;
@@ -108,67 +106,50 @@ body {
 }
 
 .menu-toggle span {
-  width: 28px;
+  width: 26px;
   height: 3px;
   background: #00e5ff;
 }
 
 /* ================= HERO ================= */
 .hero {
-  min-height: 80vh;
-  padding: 60px 20px;
+  min-height: 70vh;
+  padding: 50px 20px;
+  text-align: center;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  text-align: center;
-  gap: 30px;
-  overflow: hidden;
+  gap: 24px;
+}
+
+.hero h2 {
+  font-size: 34px;
+  text-shadow: 0 0 10px #00e5ff;
+}
+
+.hero p {
+  max-width: 520px;
+  margin: 0 auto;
+  opacity: 0.85;
 }
 
 /* ================= CARROSSEL ================= */
 .carousel-horizontal {
   display: flex;
-  gap: 32px;
+  gap: 28px;
   animation: moveDesktop 22s linear infinite;
 }
 
 .carousel-horizontal img {
-  width: 280px;
-  min-width: 280px;
+  width: 260px;
+  min-width: 260px;
   border-radius: 12px;
-  object-fit: cover;
-  filter: drop-shadow(0 0 12px #00e5ff);
-}
-
-/* ================= TEXTO HERO ================= */
-.hero h2 {
-  font-size: 40px;
-  text-shadow: 0 0 10px #00e5ff;
-}
-
-.hero p {
-  opacity: 0.85;
-  max-width: 600px;
+  filter: drop-shadow(0 0 10px #00e5ff);
 }
 
 /* ================= PCS ================= */
 .pcs-section {
-  padding: 100px 20px;
+  padding: 80px 20px;
   text-align: center;
-}
-
-.pcs-section h2 {
-  font-size: 36px;
-  margin-bottom: 12px;
-  text-shadow: 0 0 10px #00e5ff;
-}
-
-.pcs-subtitle {
-  font-size: 15px;
-  opacity: 0.85;
-  max-width: 720px;
-  margin: 0 auto 60px;
-  line-height: 1.6;
 }
 
 .pcs-grid {
@@ -176,59 +157,66 @@ body {
   margin: 0 auto;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 40px;
+  gap: 32px;
 }
 
 .pc-card {
   background: #050505;
-  border: 1px solid #00e5ff33;
   border-radius: 16px;
   padding: 20px;
+  border: 1px solid #00e5ff33;
   transition: 0.3s;
-  box-shadow: 0 0 15px #00e5ff11;
 }
 
 .pc-card:hover {
-  transform: translateY(-10px);
+  transform: translateY(-8px);
   box-shadow: 0 0 25px #00e5ff66;
 }
 
 .pc-card img {
   width: 100%;
   border-radius: 12px;
-  margin-bottom: 20px;
+  margin-bottom: 16px;
 }
 
 .pc-card h3 {
-  margin-bottom: 16px;
   color: #00e5ff;
+  margin-bottom: 12px;
 }
 
-.pc-card p {
+/* ================= BOTÃO VER MAIS PCS ================= */
+.ver-mais-container {
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
+}
+
+.btn-ver-mais {
+  padding: 14px 36px;
+  background: transparent;
+  border: 2px solid #00e5ff;
+  color: #00e5ff;
+  text-decoration: none;
+  border-radius: 30px;
   font-size: 14px;
-  opacity: 0.9;
-  line-height: 1.6;
+  font-weight: 600;
+  letter-spacing: 1px;
+  transition: 0.3s;
+  box-shadow: 0 0 15px #00e5ff55;
+}
+
+.btn-ver-mais:hover {
+  background: #00e5ff;
+  color: #000;
+  box-shadow: 0 0 30px #00e5ff;
+  transform: translateY(-3px);
 }
 
 /* ================= SERVIÇOS ================= */
 .services-section {
-  padding: 100px 20px;
-  text-align: center;
+  padding: 80px 20px;
   background: radial-gradient(circle at top, #0f0f0f, #050505);
-}
-
-.services-section h2 {
-  font-size: 36px;
-  margin-bottom: 12px;
-  text-shadow: 0 0 10px #00e5ff;
-}
-
-.services-subtitle {
-  font-size: 15px;
-  opacity: 0.85;
-  max-width: 720px;
-  margin: 0 auto 60px;
-  line-height: 1.6;
+  text-align: center;
 }
 
 .services-grid {
@@ -236,33 +224,62 @@ body {
   margin: 0 auto;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 40px;
+  gap: 32px;
 }
 
 .service-card {
   background: #050505;
-  border: 1px solid #00e5ff33;
   border-radius: 18px;
-  padding: 30px 25px;
+  padding: 26px;
+  border: 1px solid #00e5ff33;
   transition: 0.3s;
-  box-shadow: 0 0 15px #00e5ff11;
 }
 
 .service-card:hover {
-  transform: translateY(-12px) scale(1.02);
+  transform: translateY(-10px);
   box-shadow: 0 0 30px #00e5ff88;
 }
 
 .service-card h3 {
   color: #00e5ff;
-  margin-bottom: 14px;
-  font-size: 18px;
+  margin-bottom: 12px;
 }
 
-.service-card p {
+/* ================= AGENDAMENTO ================= */
+.agendamento-section {
+  padding: 80px 20px;
+  text-align: center;
+}
+
+.agendamento-subtitle {
+  max-width: 600px;
+  margin: 0 auto 50px;
+  opacity: 0.85;
+}
+
+.agendamento-grid {
+  max-width: 900px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 24px;
+}
+
+.agendamento-card {
+  padding: 18px;
+  background: #050505;
+  border-radius: 14px;
+  border: 1px solid #00e5ff55;
+  color: #00e5ff;
+  text-decoration: none;
   font-size: 14px;
-  opacity: 0.9;
-  line-height: 1.6;
+  transition: 0.3s;
+}
+
+.agendamento-card:hover {
+  background: #00e5ff;
+  color: #000;
+  box-shadow: 0 0 25px #00e5ff;
 }
 
 /* ================= ANIMAÇÕES ================= */
@@ -287,12 +304,7 @@ body {
 
 @media (max-width: 768px) {
   .header-inner {
-    justify-content: space-between;
-    padding: 18px 20px;
-  }
-
-  .logo {
-    position: static;
+    padding: 16px 20px;
   }
 
   .btn-agendar {
@@ -305,35 +317,31 @@ body {
 
   .nav {
     position: absolute;
-    top: 80px;
+    top: 70px;
     left: 0;
     width: 100%;
     background: #050505;
     flex-direction: column;
-    align-items: center;
     gap: 20px;
-    padding: 25px 0;
+    padding: 20px 0;
     display: none;
-    border-bottom: 1px solid #00e5ff;
   }
 
   .nav.active {
     display: flex;
   }
 
-  .carousel-horizontal {
-    animation: moveMobile 16s linear infinite;
-    gap: 20px;
-  }
-
   .carousel-horizontal img {
-    width: 190px;
-    min-width: 190px;
-    filter: none;
+    width: 180px;
+    min-width: 180px;
   }
-}
 
-@keyframes moveMobile {
-  0% { transform: translateX(-120%); }
-  100% { transform: translateX(100vw); }
+  .hero h2 {
+    font-size: 26px;
+  }
+
+  .btn-ver-mais {
+    width: 90%;
+    text-align: center;
+  }
 }
