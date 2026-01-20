@@ -535,67 +535,59 @@ body {
   background: #00bcd4;
 }
 /* ================= REDES SOCIAIS ================= */
-.redes-sociais {
+.redes-sociais-section {
   max-width: 900px;
-  margin: 40px auto 0;
+  margin: 40px auto;
+  text-align: center; /* garante que o título e subtítulo fiquem centralizados */
+}
+
+.redes-sociais-section h2,
+.redes-sociais-section p {
+  text-align: center;
+}
+
+/* GRID DOS BOTÕES */
+.redes-sociais {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, 1fr); /* 3 botões por linha */
   gap: 18px;
-  justify-content: center;
+  justify-content: center; /* centraliza a grid */
+  margin-top: 20px;
 }
 
-/* CENTRALIZA QUANDO SOBRAM 2 BOTÕES NA ÚLTIMA LINHA */
-.redes-sociais .rede:nth-last-child(2) {
-  grid-column: 2 / 3;
-}
-
-.redes-sociais .rede:nth-last-child(1) {
-  grid-column: 3 / 4;
-}
-
+/* BOTÕES */
 .rede {
-  padding: 14px;
-  border-radius: 10px;
+  padding: 20px 25px;  /* aumenta o tamanho do botão */
+  border-radius: 12px;
   text-decoration: none;
   font-weight: 600;
+  font-size: 18px;     /* aumenta o tamanho do texto */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
   text-align: center;
   transition: 0.3s;
   color: #000;
 }
 
 /* CORES */
-.rede.whatsapp {
-  background: #25d366;
-}
-
-.rede.discord {
-  background: #5865f2;
-}
-
-.rede.instagram {
-  background: linear-gradient(45deg, #f58529, #dd2a7b, #8134af);
-}
-
-.rede.tiktok {
-  background: #010101;
-  color: #fff;
-}
-
-.rede.youtube {
-  background: #ff0000;
-  color: #fff;
-}
-
-.rede.facebook {
-  background: #1877f2;
-  color: #fff;
-}
+.rede.whatsapp { background: #25d366; color: #fff; }
+.rede.discord   { background: #5865f2; color: #fff; }
+.rede.instagram { background: linear-gradient(45deg, #f58529, #dd2a7b, #8134af); color: #fff; }
+.rede.tiktok    { background: #010101; color: #fff; }
+.rede.youtube   { background: #ff0000; color: #fff; }
+.rede.facebook  { background: #1877f2; color: #fff; }
 
 /* HOVER */
 .rede:hover {
   transform: translateY(-5px);
   box-shadow: 0 0 20px rgba(0, 229, 255, 0.5);
 }
+
+/* CENTRALIZA QUANDO SOBRAM 2 BOTÕES NA ÚLTIMA LINHA */
+.redes-sociais .rede:nth-last-child(2) { grid-column: 2 / 3; }
+.redes-sociais .rede:nth-last-child(1) { grid-column: 3 / 4; }
 
 /* MOBILE */
 @media (max-width: 768px) {
@@ -604,6 +596,7 @@ body {
   }
 
   .rede {
-    font-size: 14px;
+    font-size: 16px;
+    padding: 18px 20px;
   }
 }
