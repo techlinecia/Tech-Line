@@ -216,6 +216,40 @@
   </div>
 </section>
 
+<section class="localizacao-section" id="localizacao">
+  <h2>Nossas Unidades</h2>
+  <p>Escolha a unidade mais próxima de você</p>
+
+  <!-- MAPA -->
+  <div class="mapa-container">
+    <iframe
+      id="mapa"
+      src=""
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+  </div>
+
+  <!-- BOTÕES -->
+  <div class="unidades-botoes">
+    <button class="btn-unidade" onclick="trocarMapa('zona7')">
+      Unidade Zona 7
+    </button>
+
+    <button class="btn-unidade" onclick="trocarMapa('bemviver')">
+      Unidade Bem Viver
+    </button>
+  </div>
+
+  <!-- INFO -->
+  <div class="info-unidade" id="info-unidade"></div>
+
+  <a id="link-maps" class="btn-maps" href="#" target="_blank">
+    Abrir no Google Maps
+  </a>
+</section>
+
+
 <script src="js/script.js"></script>
 </body>
 </html>
