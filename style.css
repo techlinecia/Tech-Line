@@ -534,3 +534,76 @@ body {
 .btn-maps:hover {
   background: #00bcd4;
 }
+/* ================= REDES SOCIAIS ================= */
+.redes-sociais {
+  max-width: 900px;
+  margin: 40px auto 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  justify-content: center;
+}
+
+/* CENTRALIZA QUANDO SOBRAM 2 BOTÕES NA ÚLTIMA LINHA */
+.redes-sociais .rede:nth-last-child(2) {
+  grid-column: 2 / 3;
+}
+
+.redes-sociais .rede:nth-last-child(1) {
+  grid-column: 3 / 4;
+}
+
+.rede {
+  padding: 14px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: 600;
+  text-align: center;
+  transition: 0.3s;
+  color: #000;
+}
+
+/* CORES */
+.rede.whatsapp {
+  background: #25d366;
+}
+
+.rede.discord {
+  background: #5865f2;
+}
+
+.rede.instagram {
+  background: linear-gradient(45deg, #f58529, #dd2a7b, #8134af);
+}
+
+.rede.tiktok {
+  background: #010101;
+  color: #fff;
+}
+
+.rede.youtube {
+  background: #ff0000;
+  color: #fff;
+}
+
+.rede.facebook {
+  background: #1877f2;
+  color: #fff;
+}
+
+/* HOVER */
+.rede:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 20px rgba(0, 229, 255, 0.5);
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .redes-sociais {
+    grid-template-columns: 1fr;
+  }
+
+  .rede {
+    font-size: 14px;
+  }
+}
