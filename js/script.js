@@ -66,8 +66,8 @@ function trocarMapa(unidade) {
       Rua Doutor Arnaldo Busato, 430 – Zona 7</p>
 
       <p><strong>Atendimento:</strong><br>
-      Seg à Sex • 09h às 18h<br>
-      Sáb • 13h às 17h</p>
+      Seg à Sex • 08h às 18h<br>
+      Sáb • 08h às 14h</p>
     `;
 
     link.href =
@@ -85,8 +85,8 @@ function trocarMapa(unidade) {
       Rua Cecília Meireles, 395 – Bem Viver</p>
 
       <p><strong>Atendimento:</strong><br>
-      Seg à Sex • 09h às 18h<br>
-      Sáb • 13h às 17h</p>
+      Seg à Sex • 08h às 18h<br>
+      Sáb • 08h às 14h</p>
     `;
 
     link.href =
